@@ -1,3 +1,5 @@
+import Input from "@material-ui/core/Input";
+import Typography from "@material-ui/core/Typography";
 import React, { useCallback, useContext } from "react";
 import { HexDictionaryContext } from "../context/HexDictionary";
 
@@ -39,9 +41,13 @@ export const FileLoader: React.FC = () => {
 
 	return (
 		<div>
-			<h3>File loader</h3>
-			<p>Dictionary in memory: {dictionary ? "Yes" : "No"}</p>
-			<input onChange={onChange} type="file" />
+			<Typography variant="h5">
+				{dictionary
+					? "Replace the Hex Dictionary:"
+					: "Upload a Hex Dictionary:"}
+			</Typography>
+
+			<Input onChange={onChange} type="file" style={{ marginBottom: 8 * 3 }} />
 		</div>
 	);
 };
